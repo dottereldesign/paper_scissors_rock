@@ -26,8 +26,14 @@ function getComputerChoice() {
 function determineWinner(user, computer) {
   if (user === computer) {
     return "it's a tie!";
+  } else if (
+    (user === "rock" && computer === "scissors") ||
+    (user === "paper" && computer === "rock") ||
+    (user === "scissors" && computer === "paper")
+  ) {
+    return "you win!";
   } else {
-    return "not a tie.";
+    return "you lose.";
   }
 }
 
