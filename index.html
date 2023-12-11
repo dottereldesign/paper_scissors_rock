@@ -14,7 +14,18 @@
         <button id="submitName">Submit Name</button>
       </div>
 
+      <div id="changeNameSection" style="display: none">
+        <label for="newUserName">Change Your Name:</label>
+        <input type="text" id="newUserName" placeholder="New Name" />
+        <button id="changeNameButton">Change Name</button>
+      </div>
+
       <div id="gameArea" style="display: none">
+        <button id="showChangeName">Change Username</button>
+
+        <div id="mmrDisplay">Your Experience: 0</div>
+        <div id="levelDisplay">Level: 1</div>
+
         <div id="userDisplay">Welcome, <span id="displayName"></span>!</div>
         <div id="roundSelection">
           <label>Choose Best of Rounds:</label>
@@ -39,6 +50,8 @@
           <h3>Game History</h3>
           <ul id="historyList"></ul>
         </div>
+
+        <div id="stats"></div>
       </div>
     </main>
     <script src="script.js"></script>
