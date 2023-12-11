@@ -1,3 +1,15 @@
-* {
-  background-color: black;
+body {
+  background-color: #fff1b3;
+}
+
+.button.selected {
+  background-color: #4caf50; /* Example color, change as needed */
+  color: white;
+}
+
+#bestOf3.selected,
+#bestOf5.selected,
+#bestOf7.selected {
+  background-color: #4caf50; /* Example color, change as needed */
+  color: white;
 }
