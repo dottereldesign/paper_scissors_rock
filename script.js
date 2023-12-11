@@ -180,8 +180,8 @@ function updateLevel() {
 }
 
 function displayLevel() {
-  let levelDisplay = document.querySelector("#levelDisplay");
-  levelDisplay.textContent = `Level: ${playerLevel}`;
+  let levelDisplay = document.querySelector("#levelValue");
+  levelDisplay.textContent = playerLevel;
 }
 
 function showPlayAgain() {
@@ -267,8 +267,8 @@ function updateMMR(playerWon) {
 }
 
 function displayMMR() {
-  let mmrDisplay = document.querySelector("#mmrDisplay");
-  mmrDisplay.textContent = `Your Experience: ${playerMMR}`;
+  let mmrDisplay = document.querySelector("#mmrValue");
+  mmrDisplay.textContent = playerMMR;
 }
 
 function updateHistory(playerSelection, computerSelection, result) {

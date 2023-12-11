@@ -576,3 +576,27 @@ footer a {
   border: 2px solid black;
   font-family: var(--ff-primary-100);
 }
+
+.player {
+  font-family: var(--ff-primary-100);
+  width: 350px;
+  margin: 48px auto 16px auto;
+}
+
+#playerInfo {
+  display: flex;
+  gap: 16px;
+  font-size: var(--fs-400);
+}
+
+#displayUserName,
+#displayMMR,
+#displayLevel {
+  font-weight: var(--fw-bold);
+}
+
+#displayName,
+#mmrValue,
+#levelValue {
+  font-weight: var(--fw-medium);
+}
