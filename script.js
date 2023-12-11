@@ -15,6 +15,16 @@ let userWins = 0;
 let userLosses = 0;
 let userTies = 0;
 let userChoices = { rock: 0, paper: 0, scissors: 0 };
+const choiceImages = {
+  rock: "image/rock_large.png",
+  paper: "image/paper_large.png",
+  scissors: "image/scissors_large.png",
+};
+const choiceColors = {
+  paper: "#a200ff",
+  scissors: "#f8e800",
+  rock: "#2cd3e1",
+};
 
 window.addEventListener("DOMContentLoaded", () => {
   let savedUserName = localStorage.getItem("currentUserName");
@@ -147,6 +157,11 @@ function loadStats() {
     displayMMR();
     displayLevel();
   }
+}
+
+function updateScoreDisplay() {
+  document.querySelector("#userScoreDisplay").textContent = userScore;
+  document.querySelector("#computerScoreDisplay").textContent = computerScore;
 }
 
 function updateWinLossRatio() {
@@ -287,11 +302,30 @@ function determineWinner(user, computer) {
 function playGame(playerSelection) {
   displayStats();
   roundNumber++;
+
   let computerSelection = getComputerChoice();
   let gameResult = determineWinner(playerSelection, computerSelection);
 
   updateResultDisplay(gameResult);
   updateHistoryDisplay(gameResult);
+
+  // Update the score display
+  document.getElementById("scoreUser").textContent = userScore;
+  document.getElementById("scoreComputer").textContent = computerScore;
+
+  // Update background colors based on the choices
+  document.getElementById("scoreCardUser").style.backgroundColor =
+    choiceColors[playerSelection];
+  document.getElementById("scoreCardComputer").style.backgroundColor =
+    choiceColors[computerSelection];
+
+  // Update the images based on the choices
+  document.getElementById(
+    "scoreCardUser"
+  ).innerHTML = `<img src="${choiceImages[playerSelection]}" alt="${playerSelection}" />`;
+  document.getElementById(
+    "scoreCardComputer"
+  ).innerHTML = `<img src="${choiceImages[computerSelection]}" alt="${computerSelection}" />`;
 
   if (userScore === winCondition || computerScore === winCondition) {
     updateMMR(userScore === winCondition);

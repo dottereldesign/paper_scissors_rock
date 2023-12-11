@@ -33,48 +33,46 @@
       <h2 class="heading_scissors">KUTIKUTI</h2>
       <h2 class="heading_rock">K<span>O</span>URA</h2>
     </section>
-    <main>
-      <div id="nameEntry">
-        <label for="userName">Enter Your Name:</label>
-        <input type="text" id="userName" placeholder="Your Name" />
-        <button id="submitName">Submit Name</button>
-      </div>
+    <div id="roundSelection">
+      <button id="bestOf3">Bo3</button>
+      <button id="bestOf5">Bo5</button>
+      <button id="bestOf7">Bo7</button>
+    </div>
 
-      <div id="changeNameSection" style="display: none">
-        <label for="newUserName">Change Your Name:</label>
-        <input type="text" id="newUserName" placeholder="New Name" />
-        <button id="changeNameButton">Change Name</button>
-      </div>
-
-      <div id="gameArea" style="display: none">
-        <button id="showChangeName">Change Username</button>
-
-        <div id="mmrDisplay">Your Experience: 0</div>
-        <div id="levelDisplay">Level: 1</div>
-
-        <div id="userDisplay">Welcome, <span id="displayName"></span>!</div>
-        <div id="roundSelection">
-          <button id="bestOf3">Bo3</button>
-          <button id="bestOf5">Bo5</button>
-          <button id="bestOf7">Bo7</button>
-        </div>
-
-        <button id="rockButton">Rock</button>
-        <button id="paperButton">Paper</button>
-        <button id="scissorsButton">Scissors</button>
-        <div id="result"></div>
-        <button id="playAgainButton" style="display: none">Play Again</button>
-
-        <div id="history">
-          <h4>Game History</h4>
-          <ul id="historyList"></ul>
-        </div>
-
-        <div id="stats">
-          <p>Win/Loss Ratio: <span id="winLossRatio">0</span></p>
-        </div>
+    <main class="game">
+      <div class="game_hand">
+        <button id="rockButton" aria-label="Paper"></button>
+        <button id="paperButton" aria-label="Scissors"></button>
+        <button id="scissorsButton" aria-label="Rock"></button>
       </div>
     </main>
+
+    <section class="result">
+      <div class="result_container">
+        <div class="result_title">
+          <h3>Scoreboard</h3>
+        </div>
+
+        <div class="result_scoreboard">
+          <div class="result_grid-1">
+            <div class="result_score-user result_score-wrapper">
+              <div id="scoreUser"></div>
+            </div>
+            <div class="result_score-placeholder" id="scoreCardUser"></div>
+          </div>
+
+          <span>vs</span>
+
+          <div class="result_grid-3">
+            <div class="result_score-placeholder" id="scoreCardComputer"></div>
+            <div class="result_score-computer result_score-wrapper">
+              <div id="scoreComputer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <div class="rules">
         <h4 class="rules_title">Rules</h4>
@@ -99,6 +97,42 @@
         <p class="social_text">Created by Jamie Wilson</p>
       </a>
     </footer>
+
+    <main>
+      <div id="nameEntry">
+        <label for="userName">Enter Your Name:</label>
+        <input type="text" id="userName" placeholder="Your Name" />
+        <button id="submitName">Submit Name</button>
+      </div>
+
+      <div id="changeNameSection" style="display: none">
+        <label for="newUserName">Change Your Name:</label>
+        <input type="text" id="newUserName" placeholder="New Name" />
+        <button id="changeNameButton">Change Name</button>
+      </div>
+
+      <div id="gameArea" style="display: none">
+        <button id="showChangeName">Change Username</button>
+
+        <div id="mmrDisplay">Your Experience: 0</div>
+        <div id="levelDisplay">Level: 1</div>
+
+        <div id="userDisplay">Welcome, <span id="displayName"></span>!</div>
+
+        <div id="result"></div>
+        <button id="playAgainButton" style="display: none">Play Again</button>
+
+        <div id="history">
+          <h4>Game History</h4>
+          <ul id="historyList"></ul>
+        </div>
+
+        <div id="stats">
+          <p>Win/Loss Ratio: <span id="winLossRatio">0</span></p>
+        </div>
+      </div>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>
