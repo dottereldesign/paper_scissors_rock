@@ -397,14 +397,14 @@ header a {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  top: -50px;
-  left: -100px;
-  width: 300px; /* Set width and height based on your design */
-  height: 260px;
+  top: -20px;
+  left: -15px;
+  width: 90px; /* Set width and height based on your design */
+  height: 90px;
   overflow: hidden;
 }
 
-.game::before {
+.result::after {
   content: " "; /* Set content to a non-empty value */
   position: absolute;
   background: url("image/donald_tablet.png");
@@ -412,11 +412,111 @@ header a {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  top: -200px;
-  right: -150px;
-  width: 300px; /* Set width and height based on your design */
-  height: 270px;
+  top: -20px;
+  right: -10px;
+  width: 90px; /* Set width and height based on your design */
+  height: 90px;
   overflow: hidden;
+}
+
+@media (min-width: 650px) {
+  .result::before {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/pluto_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -45px;
+    left: 30px;
+    width: 100px; /* Set width and height based on your design */
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .result::after {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/donald_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -130px;
+    right: -10px;
+    width: 120px; /* Set width and height based on your design */
+    height: 160px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 850px) {
+  .result::before {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/pluto_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -45px;
+    left: -40px;
+    width: 250px; /* Set width and height based on your design */
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .result::after {
+    content: none; /* Set content to a non-empty value */
+  }
+
+  .game::before {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/donald_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -155px;
+    right: -60px;
+    width: 210px; /* Set width and height based on your design */
+    height: 210px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1000px) {
+  .result::before {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/pluto_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -50px;
+    left: -100px;
+    width: 300px; /* Set width and height based on your design */
+    height: 260px;
+    overflow: hidden;
+  }
+
+  .game::before {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/donald_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -200px;
+    right: -150px;
+    width: 300px; /* Set width and height based on your design */
+    height: 270px;
+    overflow: hidden;
+  }
 }
 
 @media (min-width: 500px) {

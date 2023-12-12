@@ -65,16 +65,6 @@ function updateScoreDisplay() {
   document.querySelector("#computerScoreDisplay").textContent = computerScore;
 }
 
-function updateLevel() {
-  playerLevel = Math.floor(playerMMR / 100) + 1;
-  displayLevel();
-}
-
-function displayLevel() {
-  let levelDisplay = document.querySelector("#levelValue");
-  levelDisplay.textContent = playerLevel;
-}
-
 function showPlayAgain() {
   playAgainButton.style.display = "block";
   playAgainButton.addEventListener("click", resetGame);
@@ -124,13 +114,6 @@ function getComputerChoice() {
   let randomIndex = Math.floor(Math.random() * 3);
   return choices[randomIndex];
 }
-
-// function updateGameEndDisplay() {
-//   const endText = `<br><strong>Game Over! ${
-//     userScore === winCondition ? "You Win!" : "Computer Wins!"
-//   }</strong>`;
-//   resultDiv.innerHTML += endText;
-// }
 
 function displayStats() {
   let statsDiv = document.querySelector("#stats");
@@ -201,7 +184,6 @@ function playGame(playerSelection) {
   ).innerHTML = `<img src="${choiceImages[computerSelection]}" alt="${computerSelection}" />`;
 
   if (userScore === winCondition || computerScore === winCondition) {
-    // updateGameEndDisplay();
     rockButton.disabled = true;
     paperButton.disabled = true;
     scissorsButton.disabled = true;
