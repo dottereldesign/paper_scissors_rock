@@ -29,9 +29,9 @@ const tieColor = "#e2e2e1";
 
 // DOM
 window.addEventListener("DOMContentLoaded", () => {
-  // Set Best of 3 as the default game type
-  setWinConditionAndStart(3);
-  document.querySelector("#bestOf3").classList.add("selected");
+  // Set Best of 5 as the default game type
+  setWinConditionAndStart(5);
+  document.querySelector("#bestOf5").classList.add("selected");
 });
 
 // Query Selectors
