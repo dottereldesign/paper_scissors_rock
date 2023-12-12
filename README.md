@@ -60,12 +60,12 @@ Include screenshots of your game...
 
 Contributions to the project are welcome! Please follow these steps:
 
-Fork the repository
-Create a new branch (git checkout -b feature-branch)
-Make your changes
-Commit your changes (git commit -am 'Add some feature')
-Push to the branch (git push origin feature-branch)
-Create a new Pull Request
+1. Fork the repository.
+2. Create a new branch by running `git checkout -b feature-branch`.
+3. Make your changes.
+4. Commit your changes with `git commit -am 'Add some feature'`.
+5. Push to the branch with `git push origin feature-branch`.
+6. Create a new Pull Request.
 
 ## License
 
