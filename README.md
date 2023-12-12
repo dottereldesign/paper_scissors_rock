@@ -1,8 +1,5 @@
 # Rock, Paper, Scissors Game
 
-Description
-Provide a brief description of your project, explaining what the Rock, Paper, Scissors game is and any specific features or rules it might have.
-
 ## Table of Contents
 
 - [Description](#description)
