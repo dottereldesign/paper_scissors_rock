@@ -38,14 +38,6 @@
       <h2 class="heading_rock">K<span>O</span>URA</h2>
     </section>
 
-    <section class="player">
-      <div id="playerInfo">
-        <div id="displayUserName">Username: <span id="displayName"></span></div>
-        <div id="displayMMR">Experience: <span id="mmrValue">0</span></div>
-        <div id="displayLevel">Level: <span id="levelValue">1</span></div>
-      </div>
-    </section>
-
     <section>
       <div id="roundSelection">
         <button id="bestOf3">Bo3</button>
@@ -86,31 +78,7 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="match_history">
-      <div id="history">
-        <h4>Game History</h4>
-        <ul id="historyList"></ul>
-      </div>
-    </section>
-
-    <section class="bloat">
-      <div id="nameEntry">
-        <label for="userName">Enter Your Name:</label>
-        <input type="text" id="userName" placeholder="Your Name" />
-        <button id="submitName">Submit Name</button>
-      </div>
-
-      <div id="changeNameSection" style="display: none">
-        <label for="newUserName">Change Your Name:</label>
-        <input type="text" id="newUserName" placeholder="New Name" />
-        <button id="changeNameButton">Change Name</button>
-      </div>
-
       <div id="gameArea" style="display: none">
-        <button id="showChangeName">Change Username</button>
-
         <div id="result"></div>
         <button id="playAgainButton" style="display: none">Play Again</button>
       </div>
@@ -120,17 +88,16 @@
       <div class="rules">
         <h4 class="rules_title">Rules</h4>
         <ul class="rules_list">
-          <li><span>1.</span> First to 5 wins.</li>
           <li>
-            <span>2.</span> Rock beats Scissors: Rock smashes or breaks
+            <span>1.</span> Rock beats Scissors: Rock smashes or breaks
             scissors.
           </li>
           <li>
-            <span>3.</span> Paper beats Rock: Paper covers and wraps around
+            <span>2.</span> Paper beats Rock: Paper covers and wraps around
             rock.
           </li>
           <li>
-            <span>4.</span> Scissors beats Paper: Scissors cut through paper.
+            <span>3.</span> Scissors beats Paper: Scissors cut through paper.
           </li>
         </ul>
       </div>

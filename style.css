@@ -583,27 +583,40 @@ footer a {
   margin: 48px auto 16px auto;
 }
 
-#playerInfo {
-  display: flex;
-  gap: 16px;
-  font-size: var(--fs-400);
+.game {
+  position: relative; /* Ensure the parent is positioned */
 }
 
-#displayUserName,
-#displayMMR,
-#displayLevel {
+#gameArea {
+  display: none; /* Initially hidden */
+  position: absolute; /* Position it absolutely within the relative parent */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%; /* Full width of the parent */
+  height: 100%; /* Full height of the parent */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 10; /* Ensure it's on top */
+  text-align: center; /* Center the content */
+  padding-top: 50px; /* Add some padding at the top */
+  font-family: var(--ff-primary-100);
+  color: white;
+  font-size: var(--fs-600);
   font-weight: var(--fw-bold);
+  border-radius: 0 0 20px 20px;
 }
 
-#displayName,
-#mmrValue,
-#levelValue {
-  font-weight: var(--fw-medium);
+main {
+  position: relative;
 }
 
-.match_history {
-  display: none;
-}
-
-.bloat {
+#playAgainButton {
+  width: 180px;
+  margin: 64px auto 0 auto;
+  background-color: #f5ca00;
+  color: black;
+  border-radius: 20px;
+  border: 3px solid white;
+  padding: 5px;
 }

@@ -8,10 +8,7 @@ let roundNumber = 0;
 let userOverallWins = 0;
 let computerOverallWins = 0;
 let selectedRoundButton = null;
-let userName = "";
-let playerMMR = 0;
-let playerLevel = 1;
-const MMR_CHANGE = 25;
+
 let userWins = 0;
 let userLosses = 0;
 let userTies = 0;
@@ -27,24 +24,14 @@ const choiceColors = {
   rock: "#2cd3e1",
 };
 const winColor = "#75d521";
-const loseColor = "#e00041";
+const loseColor = "#e5463a";
 const tieColor = "#e2e2e1";
 
 // DOM
 window.addEventListener("DOMContentLoaded", () => {
-  let savedUserName = localStorage.getItem("currentUserName");
-  if (savedUserName) {
-    userName = savedUserName;
-    document.querySelector("#userName").value = savedUserName;
-    submitName();
-    loadStats();
-  }
-
   // Set Best of 3 as the default game type
   setWinConditionAndStart(3);
   document.querySelector("#bestOf3").classList.add("selected");
-
-  displayMMR();
 });
 
 // Query Selectors
@@ -68,101 +55,10 @@ document
 document
   .querySelector("#bestOf7")
   .addEventListener("click", () => setWinConditionAndStart(7));
-document
-  .querySelector("#userName")
-  .addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      submitName();
-    }
-  });
-document
-  .querySelector("#newUserName")
-  .addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      changeName();
-    }
-  });
-
-document.querySelector("#showChangeName").addEventListener("click", () => {
-  document.querySelector("#changeNameSection").style.display = "block";
-});
-
-document
-  .querySelector("#changeNameButton")
-  .addEventListener("click", changeName);
-function changeName() {
-  const newUserName = document.querySelector("#newUserName").value.trim();
-  if (newUserName) {
-    userName = newUserName;
-    localStorage.setItem("currentUserName", userName);
-
-    document.querySelector("#displayName").textContent = userName;
-
-    document.querySelector("#changeNameSection").style.display = "none";
-
-    saveStats();
-  } else {
-    alert("Please enter a new name.");
-  }
-}
-
-function transferStats(oldName, newName) {
-  const oldStats = JSON.parse(localStorage.getItem(oldName));
-  if (oldStats) {
-    localStorage.setItem(newName, JSON.stringify(oldStats));
-    localStorage.removeItem(oldName);
-  }
-}
-
-document.querySelector("#submitName").addEventListener("click", submitName);
 
 rockButton.addEventListener("click", () => playGame("rock"));
 paperButton.addEventListener("click", () => playGame("paper"));
 scissorsButton.addEventListener("click", () => playGame("scissors"));
-
-function submitName() {
-  userName = document.querySelector("#userName").value.trim();
-  if (userName) {
-    localStorage.setItem("currentUserName", userName);
-    loadStats();
-    document.querySelector("#displayName").textContent = userName;
-    document.querySelector("#nameEntry").style.display = "none";
-    document.querySelector("#gameArea").style.display = "block";
-  } else {
-    alert("Please enter your name.");
-  }
-}
-
-function saveStats() {
-  let stats = {
-    userWins: userWins,
-    userLosses: userLosses,
-    userTies: userTies,
-    userChoices: userChoices,
-    userOverallWins: userOverallWins,
-    userOverallLosses: computerOverallWins,
-    playerMMR: playerMMR,
-    playerLevel: playerLevel,
-  };
-  localStorage.setItem(userName, JSON.stringify(stats));
-}
-
-function loadStats() {
-  let savedStats = JSON.parse(localStorage.getItem(userName));
-  if (savedStats) {
-    userWins = savedStats.userWins;
-    userLosses = savedStats.userLosses;
-    userTies = savedStats.userTies;
-    userChoices = savedStats.userChoices;
-    userOverallWins = savedStats.userOverallWins;
-    computerOverallWins = savedStats.userOverallLosses;
-    playerMMR = savedStats.playerMMR;
-    playerLevel = savedStats.playerLevel;
-
-    displayMMR();
-    displayLevel();
-  }
-}
 
 function updateScoreDisplay() {
   document.querySelector("#userScoreDisplay").textContent = userScore;
@@ -204,10 +100,10 @@ function resetGame() {
   userLosses = 0;
   userTies = 0;
   userChoices = { rock: 0, paper: 0, scissors: 0 };
-  saveStats();
+  document.getElementById("gameArea").style.display = "none";
   playAgainButton.style.display = "none";
   resultDiv.innerHTML = "";
-  document.querySelector("#historyList").innerHTML = "";
+  //   document.querySelector("#historyList").innerHTML = "";
   rockButton.disabled = false;
   paperButton.disabled = false;
   scissorsButton.disabled = false;
@@ -229,24 +125,12 @@ function getComputerChoice() {
   return choices[randomIndex];
 }
 
-// function updateResultDisplay(gameResult) {
-//   const resultText = `Round Result: ${gameResult.result}<br>User chose: ${gameResult.userChoice}<br>Computer chose: ${gameResult.computerChoice}<br>UserScore: ${userScore}, ComputerScore: ${computerScore}`;
-//   resultDiv.innerHTML = resultText;
+// function updateGameEndDisplay() {
+//   const endText = `<br><strong>Game Over! ${
+//     userScore === winCondition ? "You Win!" : "Computer Wins!"
+//   }</strong>`;
+//   resultDiv.innerHTML += endText;
 // }
-
-function updateHistoryDisplay(gameResult) {
-  let historyList = document.querySelector("#historyList");
-  let newHistoryItem = document.createElement("li");
-  newHistoryItem.textContent = `Round ${roundNumber}: User chose ${gameResult.userChoice}, Computer chose ${gameResult.computerChoice} - ${gameResult.result}`;
-  historyList.appendChild(newHistoryItem);
-}
-
-function updateGameEndDisplay() {
-  const endText = `<br><strong>Game Over! ${
-    userScore === winCondition ? "You Win!" : "Computer Wins!"
-  }</strong>`;
-  resultDiv.innerHTML += endText;
-}
 
 function displayStats() {
   let statsDiv = document.querySelector("#stats");
@@ -259,28 +143,6 @@ function displayStats() {
       <p>Scissors: ${userChoices.scissors}</p>
       
     `;
-}
-
-function updateMMR(playerWon) {
-  if (playerWon) {
-    playerMMR += MMR_CHANGE;
-  } else {
-    playerMMR = Math.max(0, playerMMR - MMR_CHANGE);
-  }
-  displayMMR();
-  updateLevel();
-}
-
-function displayMMR() {
-  let mmrDisplay = document.querySelector("#mmrValue");
-  mmrDisplay.textContent = playerMMR;
-}
-
-function updateHistory(playerSelection, computerSelection, result) {
-  let historyList = document.querySelector("#historyList");
-  let newHistoryItem = document.createElement("li");
-  newHistoryItem.textContent = `Round ${roundNumber}: User chose ${playerSelection}, Computer chose ${computerSelection} - ${result}`;
-  historyList.appendChild(newHistoryItem);
 }
 
 function determineWinner(user, computer) {
@@ -309,9 +171,6 @@ function playGame(playerSelection) {
 
   let computerSelection = getComputerChoice();
   let gameResult = determineWinner(playerSelection, computerSelection);
-
-  //   updateResultDisplay(gameResult);
-  updateHistoryDisplay(gameResult);
 
   // Update the score display
   document.getElementById("scoreUser").textContent = userScore;
@@ -342,11 +201,13 @@ function playGame(playerSelection) {
   ).innerHTML = `<img src="${choiceImages[computerSelection]}" alt="${computerSelection}" />`;
 
   if (userScore === winCondition || computerScore === winCondition) {
-    updateMMR(userScore === winCondition);
-    updateGameEndDisplay();
+    // updateGameEndDisplay();
     rockButton.disabled = true;
     paperButton.disabled = true;
     scissorsButton.disabled = true;
+
+    // Show the gameArea overlay
+    document.getElementById("gameArea").style.display = "block"; // or 'flex'
 
     if (userScore === winCondition) {
       userOverallWins++;
@@ -355,8 +216,5 @@ function playGame(playerSelection) {
     }
 
     showPlayAgain();
-    saveStats(); // Save stats when the game ends
   }
 }
-
-window.addEventListener("beforeunload", saveStats);
