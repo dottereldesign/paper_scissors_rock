@@ -1,5 +1,6 @@
 ("use strict");
 
+// Variables
 let userScore = 0;
 let computerScore = 0;
 let winCondition = 5;
@@ -25,7 +26,11 @@ const choiceColors = {
   scissors: "#f8e800",
   rock: "#2cd3e1",
 };
+const winColor = "#75d521";
+const loseColor = "#e00041";
+const tieColor = "#e2e2e1";
 
+// DOM
 window.addEventListener("DOMContentLoaded", () => {
   let savedUserName = localStorage.getItem("currentUserName");
   if (savedUserName) {
@@ -42,6 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
   displayMMR();
 });
 
+// Query Selectors
 let rockButton = document.querySelector("#rockButton");
 let paperButton = document.querySelector("#paperButton");
 let scissorsButton = document.querySelector("#scissorsButton");
@@ -153,7 +159,6 @@ function loadStats() {
     playerMMR = savedStats.playerMMR;
     playerLevel = savedStats.playerLevel;
 
-    displayStats();
     displayMMR();
     displayLevel();
   }
@@ -162,16 +167,6 @@ function loadStats() {
 function updateScoreDisplay() {
   document.querySelector("#userScoreDisplay").textContent = userScore;
   document.querySelector("#computerScoreDisplay").textContent = computerScore;
-}
-
-function updateWinLossRatio() {
-  let ratio;
-  if (userLosses === 0) {
-    ratio = userWins > 0 ? "Perfect" : "N/A";
-  } else {
-    ratio = (userWins / userLosses).toFixed(2);
-  }
-  document.querySelector("#winLossRatio").textContent = ratio;
 }
 
 function updateLevel() {
@@ -216,6 +211,16 @@ function resetGame() {
   rockButton.disabled = false;
   paperButton.disabled = false;
   scissorsButton.disabled = false;
+
+  // Update the score display elements
+  document.getElementById("scoreUser").textContent = userScore;
+  document.getElementById("scoreComputer").textContent = computerScore;
+
+  // Reset the background colors and images if needed
+  document.getElementById("scoreCardUser").style.backgroundColor = "";
+  document.getElementById("scoreCardUser").innerHTML = "";
+  document.getElementById("scoreCardComputer").style.backgroundColor = "";
+  document.getElementById("scoreCardComputer").innerHTML = "";
 }
 
 function getComputerChoice() {
@@ -224,10 +229,10 @@ function getComputerChoice() {
   return choices[randomIndex];
 }
 
-function updateResultDisplay(gameResult) {
-  const resultText = `Round Result: ${gameResult.result}<br>User chose: ${gameResult.userChoice}<br>Computer chose: ${gameResult.computerChoice}<br>UserScore: ${userScore}, ComputerScore: ${computerScore}`;
-  resultDiv.innerHTML = resultText;
-}
+// function updateResultDisplay(gameResult) {
+//   const resultText = `Round Result: ${gameResult.result}<br>User chose: ${gameResult.userChoice}<br>Computer chose: ${gameResult.computerChoice}<br>UserScore: ${userScore}, ComputerScore: ${computerScore}`;
+//   resultDiv.innerHTML = resultText;
+// }
 
 function updateHistoryDisplay(gameResult) {
   let historyList = document.querySelector("#historyList");
@@ -300,24 +305,33 @@ function determineWinner(user, computer) {
 }
 
 function playGame(playerSelection) {
-  displayStats();
   roundNumber++;
 
   let computerSelection = getComputerChoice();
   let gameResult = determineWinner(playerSelection, computerSelection);
 
-  updateResultDisplay(gameResult);
+  //   updateResultDisplay(gameResult);
   updateHistoryDisplay(gameResult);
 
   // Update the score display
   document.getElementById("scoreUser").textContent = userScore;
   document.getElementById("scoreComputer").textContent = computerScore;
 
-  // Update background colors based on the choices
-  document.getElementById("scoreCardUser").style.backgroundColor =
-    choiceColors[playerSelection];
-  document.getElementById("scoreCardComputer").style.backgroundColor =
-    choiceColors[computerSelection];
+  // Set background colors based on game result
+  if (gameResult.result === "win") {
+    document.getElementById("scoreCardUser").style.backgroundColor = winColor;
+    document.getElementById("scoreCardComputer").style.backgroundColor =
+      loseColor;
+  } else if (gameResult.result === "loss") {
+    document.getElementById("scoreCardUser").style.backgroundColor = loseColor;
+    document.getElementById("scoreCardComputer").style.backgroundColor =
+      winColor;
+  } else {
+    // in case of a tie
+    document.getElementById("scoreCardUser").style.backgroundColor = tieColor;
+    document.getElementById("scoreCardComputer").style.backgroundColor =
+      tieColor;
+  }
 
   // Update the images based on the choices
   document.getElementById(

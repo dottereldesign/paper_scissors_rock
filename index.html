@@ -14,6 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock, Paper, Scissors</title>
+    <script
+      src="https://kit.fontawesome.com/c627734373.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,11 +46,13 @@
       </div>
     </section>
 
-    <div id="roundSelection">
-      <button id="bestOf3">Bo3</button>
-      <button id="bestOf5">Bo5</button>
-      <button id="bestOf7">Bo7</button>
-    </div>
+    <section>
+      <div id="roundSelection">
+        <button id="bestOf3">Bo3</button>
+        <button id="bestOf5">Bo5</button>
+        <button id="bestOf7">Bo7</button>
+      </div>
+    </section>
 
     <main class="game">
       <div class="game_hand">
@@ -82,6 +88,34 @@
       </div>
     </section>
 
+    <section class="match_history">
+      <div id="history">
+        <h4>Game History</h4>
+        <ul id="historyList"></ul>
+      </div>
+    </section>
+
+    <section class="bloat">
+      <div id="nameEntry">
+        <label for="userName">Enter Your Name:</label>
+        <input type="text" id="userName" placeholder="Your Name" />
+        <button id="submitName">Submit Name</button>
+      </div>
+
+      <div id="changeNameSection" style="display: none">
+        <label for="newUserName">Change Your Name:</label>
+        <input type="text" id="newUserName" placeholder="New Name" />
+        <button id="changeNameButton">Change Name</button>
+      </div>
+
+      <div id="gameArea" style="display: none">
+        <button id="showChangeName">Change Username</button>
+
+        <div id="result"></div>
+        <button id="playAgainButton" style="display: none">Play Again</button>
+      </div>
+    </section>
+
     <footer>
       <div class="rules">
         <h4 class="rules_title">Rules</h4>
@@ -106,41 +140,6 @@
         <p class="social_text">Created by Jamie Wilson</p>
       </a>
     </footer>
-
-    <main>
-      <div id="nameEntry">
-        <label for="userName">Enter Your Name:</label>
-        <input type="text" id="userName" placeholder="Your Name" />
-        <button id="submitName">Submit Name</button>
-      </div>
-
-      <div id="changeNameSection" style="display: none">
-        <label for="newUserName">Change Your Name:</label>
-        <input type="text" id="newUserName" placeholder="New Name" />
-        <button id="changeNameButton">Change Name</button>
-      </div>
-
-      <div id="gameArea" style="display: none">
-        <button id="showChangeName">Change Username</button>
-
-        <div id="mmrDisplay">Your Experience: 0</div>
-        <div id="levelDisplay">Level: 1</div>
-
-        <div id="userDisplay"><span id="displayName"></span></div>
-
-        <div id="result"></div>
-        <button id="playAgainButton" style="display: none">Play Again</button>
-
-        <div id="history">
-          <h4>Game History</h4>
-          <ul id="historyList"></ul>
-        </div>
-
-        <div id="stats">
-          <p>Win/Loss Ratio: <span id="winLossRatio">0</span></p>
-        </div>
-      </div>
-    </main>
 
     <script src="script.js"></script>
   </body>

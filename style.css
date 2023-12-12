@@ -600,3 +600,10 @@ footer a {
 #levelValue {
   font-weight: var(--fw-medium);
 }
+
+.match_history {
+  display: none;
+}
+
+.bloat {
+}
