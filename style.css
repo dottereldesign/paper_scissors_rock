@@ -329,6 +329,8 @@ header a {
 }
 
 .rounds {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
 }
@@ -350,6 +352,8 @@ header a {
   border-radius: 5px;
   padding: 0px 16px;
   margin-top: 16px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   border: 2px solid black;
   font-family: var(--ff-primary-400);
