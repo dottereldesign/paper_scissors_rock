@@ -51,7 +51,7 @@ Select the number of rounds you want to play (best of 3, 5, or 7). Then, choose 
 
 ## Screenshots
 
-Include screenshots of your game...
+![Rock Paper Scissors Game Screenshot](https://i.imgur.com/cQ1yqxf.jpeg)
 
 ## Contributing
 
