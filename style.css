@@ -419,7 +419,7 @@ header a {
   overflow: hidden;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 450px) {
   .result::before {
     content: " "; /* Set content to a non-empty value */
     position: absolute;
@@ -428,9 +428,41 @@ header a {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    top: -45px;
-    left: 30px;
-    width: 100px; /* Set width and height based on your design */
+    top: -30px;
+    left: -15px;
+    width: 150px; /* Set width and height based on your design */
+    height: 120px;
+    overflow: hidden;
+  }
+
+  .result::after {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/donald_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -20px;
+    right: -10px;
+    width: 120px; /* Set width and height based on your design */
+    height: 110px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 550px) {
+  .result::before {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/pluto_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -30px;
+    left: -15px;
+    width: 180px; /* Set width and height based on your design */
     height: 150px;
     overflow: hidden;
   }
@@ -443,10 +475,74 @@ header a {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    top: -130px;
+    top: -20px;
     right: -10px;
-    width: 120px; /* Set width and height based on your design */
-    height: 160px;
+    width: 140px; /* Set width and height based on your design */
+    height: 130px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 650px) {
+  .result::before {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/pluto_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -30px;
+    left: -15px;
+    width: 195px; /* Set width and height based on your design */
+    height: 170px;
+    overflow: hidden;
+  }
+
+  .result::after {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/donald_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -30px;
+    right: -10px;
+    width: 160px; /* Set width and height based on your design */
+    height: 150px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 750px) {
+  .result::before {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/pluto_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -30px;
+    left: -15px;
+    width: 225px; /* Set width and height based on your design */
+    height: 190px;
+    overflow: hidden;
+  }
+
+  .result::after {
+    content: " "; /* Set content to a non-empty value */
+    position: absolute;
+    background: url("image/donald_tablet.png");
+    z-index: 100;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -30px;
+    right: -10px;
+    width: 180px; /* Set width and height based on your design */
+    height: 170px;
     overflow: hidden;
   }
 }
