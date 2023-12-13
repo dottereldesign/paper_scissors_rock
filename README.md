@@ -1,4 +1,4 @@
-# Rock, Paper, Scissors Game
+# Paper, Scissors, Rock
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@
 
 ## Description
 
-This Rock, Paper, Scissors game is a fun and interactive web-based implementation of the classic hand game. Players compete against the computer in a series of rounds, choosing either rock, paper, or scissors. The game features a dynamic scoreboard, colorful animations, and different game modes including best of 3, 5, and 7 rounds. Customized with vibrant graphics and a user-friendly interface, it offers a delightful experience for players of all ages.
+This Paper, Scissors, Rock game is a fun and interactive web-based implementation of the classic hand game. Players compete against the computer in a series of rounds, choosing either rock, paper, or scissors. The game features a dynamic scoreboard, colorful animations, and different game modes including best of 3, 5, and 7 rounds. Customized with vibrant graphics and a user-friendly interface, it offers a delightful experience for players of all ages.
 
 ## Demo
 
@@ -42,7 +42,7 @@ cd pepa_kutikuti_koura
 
 ## How to Play
 
-In Rock, Paper, Scissors:
+In Paper, Scissors, Rock:
 
 Rock crushes Scissors
 Scissors cuts Paper
