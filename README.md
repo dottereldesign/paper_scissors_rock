@@ -32,10 +32,10 @@ To set up the game locally, follow these steps:
 
 ```bash
 # Clone the repository
-git clone https://github.com/dottereldesign/pepa_kutikuti_koura.git
+git clone git@github.com:dottereldesign/paper_scissors_rock.git
 
 # Change into the project directory
-cd pepa_kutikuti_koura
+cd paper_scissors_rock
 
 # Open the index.html file in a web browser
 ```
